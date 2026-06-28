@@ -319,6 +319,227 @@ section p {
     font-size: 0.9rem;
 }
 
+.project-hero {
+    padding: 100px 0 60px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(163, 230, 53, 0.06) 0%, transparent 60%),
+        var(--color-bg);
+}
+
+.project-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
+    margin: 8px 0 12px;
+}
+
+.project-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 28px;
+}
+
+.project-hero-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+
+.breadcrumb a {
+    color: var(--color-text-muted);
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary);
+}
+
+.archived-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid #facc15;
+    color: #facc15;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+}
+
+.tech-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color var(--transition);
+}
+
+.tech-card:hover {
+    border-color: var(--color-primary-dim);
+}
+
+.tech-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.tech-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    max-width: none;
+}
+
+.lib-list {
+    list-style: none;
+    margin-top: 24px;
+}
+
+.lib-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.lib-list li:last-child {
+    border-bottom: none;
+}
+
+.lib-list li strong {
+    color: var(--color-text);
+}
+
+.page-404 {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-404 h1 {
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.glitch-subtitle {
+    font-size: 1.2rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+.page-404 p {
+    margin: 0 auto 28px;
+}
+
+.status-hero {
+    padding: 100px 0 40px;
+}
+
+.status-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.build-list {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.build-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.build-repo {
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-width: 160px;
+    color: var(--color-text);
+}
+
+.build-row img {
+    display: block;
+}
+
+.build-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-left: auto;
+}
+
+.lang-bar {
+    display: flex;
+    height: 12px;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 32px;
+    background: var(--color-surface);
+}
+
+.lang-segment {
+    height: 100%;
+    transition: opacity var(--transition);
+}
+
+.lang-segment:hover {
+    opacity: 0.8;
+}
+
+.lang-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.lang-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
 footer {
     text-align: center;
     padding: 32px 0;

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Status — PikminTea</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">PikminTea</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="status.html" class="active">Status</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                        <li>
+                            <a href="https://github.com/pikmintea" target="_blank">GitHub</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="status-hero">
+                <div class="container">
+                    <h1>Status</h1>
+                    <p>Build and language overview for the PikminTea ecosystem.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <h2>Build Status</h2>
+                    <div class="build-list">
+                        <div class="build-row">
+                            <span class="build-repo">pikmintea.github.io</span>
+                            <img src="https://github.com/pikmintea/pikmintea.github.io/actions/workflows/static.yml/badge.svg" alt="deploy status" />
+                            <span class="build-desc">site deployment</span>
+                        </div>
+                        <div class="build-row">
+                            <span class="build-repo">QuickMath</span>
+                            <img src="https://github.com/pikmintea/QuickMath/actions/workflows/Deploy.yml/badge.svg" alt="quickmath build" />
+                            <span class="build-desc">blazor wasm build &amp; deploy</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <h2>Languages</h2>
+                    <p>Language breakdown of source code across all projects.</p>
+                    <div class="lang-bar">
+                        <span class="lang-segment" style="width: 43.5%; background: #e34c26" title="HTML 43.5%"></span>
+                        <span class="lang-segment" style="width: 36.1%; background: #563d7c" title="CSS 36.1%"></span>
+                        <span class="lang-segment" style="width: 14.2%; background: #b07219" title="Java 14.2%"></span>
+                        <span class="lang-segment" style="width: 6.2%; background: #178600" title="C# 6.2%"></span>
+                    </div>
+                    <div class="lang-legend">
+                        <span class="lang-legend-item"><span class="lang-dot" style="background: #e34c26"></span>HTML 43.5%</span>
+                        <span class="lang-legend-item"><span class="lang-dot" style="background: #563d7c"></span>CSS 36.1%</span>
+                        <span class="lang-legend-item"><span class="lang-dot" style="background: #b07219"></span>Java 14.2%</span>
+                        <span class="lang-legend-item"><span class="lang-dot" style="background: #178600"></span>C# 6.2%</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 <a href="https://github.com/pikmintea">pikmintea</a>. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
