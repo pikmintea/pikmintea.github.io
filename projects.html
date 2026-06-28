@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projects — PikminTea</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">PikminTea</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html" class="active">Projects</a></li>
+                        <li><a href="status.html">Status</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                        <li>
+                            <a href="https://github.com/pikmintea" target="_blank">GitHub</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="projects-hero">
+                <div class="container">
+                    <h1>Projects</h1>
+                    <p>All current and past projects from the PikminTea organisation.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="project-grid" id="repo-grid">
+                        <p class="loading">Loading repositories from GitHub…</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2026 <a href="https://github.com/pikmintea">pikmintea</a>. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            const LANG_COLORS = {
+                HTML: '#e34c26', CSS: '#563d7c', JavaScript: '#f1e05a',
+                'C#': '#178600', Java: '#b07219', Python: '#3572a5',
+                TypeScript: '#3178c6', Ruby: '#701516', Go: '#00add8',
+                Rust: '#dea584', Swift: '#f05138', Kotlin: '#a97bff',
+                Dart: '#00b4ab', Lua: '#000080', Shell: '#89e051',
+                Makefile: '#427819', Markdown: '#083fa1', Dockerfile: '#384d54',
+            };
+
+            function langColor(lang) {
+                return LANG_COLORS[lang] || '#8a8a9a';
+            }
+
+            document.addEventListener('DOMContentLoaded', async function () {
+                const grid = document.getElementById('repo-grid');
+
+                try {
+                    const res = await fetch(
+                        'https://api.github.com/orgs/pikmintea/repos?per_page=100&type=public&sort=pushed'
+                    );
+                    if (!res.ok) throw new Error('Failed to fetch repos');
+                    const repos = await res.json();
+
+                    if (repos.length === 0) {
+                        grid.innerHTML = '<p class="loading">No public repos found.</p>';
+                        return;
+                    }
+
+                    let html = '';
+                    for (const r of repos) {
+                        const isArchived = r.archived;
+                        const isFork = r.fork;
+                        const lang = r.language || '';
+                        const stars = r.stargazers_count;
+                        const pushed = new Date(r.pushed_at).toLocaleDateString();
+
+                        html += '<div class="project-card">';
+
+                        if (isArchived) {
+                            html += '<div class="card-tag archived">archived</div>';
+                        }
+                        if (isFork) {
+                            html += '<div class="card-tag fork">fork</div>';
+                        }
+
+                        html += '<div class="project-lang">';
+                        if (lang) {
+                            html +=
+                                '<span class="lang-dot" style="background:' +
+                                langColor(lang) +
+                                '"></span> ' +
+                                lang;
+                        }
+                        html += '</div>';
+
+                        const detailPage = r.name === 'RULES' ? 'rules.html' :
+                            r.name === 'pikmintea.github.io' ? 'index.html' :
+                            r.name + '.html';
+
+                        html +=
+                            '<h3><a href="' +
+                            detailPage +
+                            '">' +
+                            r.name +
+                            '</a></h3>';
+
+                        html +=
+                            '<p>' +
+                            (r.description || 'No description') +
+                            '</p>';
+
+                        html += '<div class="project-links">';
+
+                        if (r.homepage && !r.archived) {
+                            html +=
+                                '<a href="' +
+                                r.homepage +
+                                '" target="_blank">Live &rarr;</a>';
+                        }
+
+                        html +=
+                            '<a href="' +
+                            r.html_url +
+                            '" target="_blank">Source</a>';
+
+                        if (stars > 0) {
+                            html +=
+                                '<span class="project-stars">&#9733; ' +
+                                stars +
+                                '</span>';
+                        }
+
+                        html += '</div>'; // .project-links
+                        html += '</div>'; // .project-card
+                    }
+
+                    grid.innerHTML = html;
+                } catch (err) {
+                    grid.innerHTML =
+                        '<p class="error">Failed to load projects: ' +
+                        err.message +
+                        '</p>';
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -262,6 +262,53 @@ section p {
     font-weight: 600;
 }
 
+.project-card .project-links .project-stars {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.project-card .project-lang .lang-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.card-tag.archived {
+    border: 1px solid #facc15;
+    color: #facc15;
+}
+
+.card-tag.fork {
+    border: 1px solid var(--color-text-muted);
+    color: var(--color-text-muted);
+}
+
+.projects-hero {
+    padding: 100px 0 40px;
+}
+
+.projects-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
 .contact {
     text-align: center;
     background:
