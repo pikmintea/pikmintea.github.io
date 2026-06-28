@@ -1,58 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PikminTea</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PikminTea</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">PikminTea</a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                        <li>
+                            <a
+                                href="https://github.com/pikmintea"
+                                target="_blank"
+                                >GitHub</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-    <header>
-        <h1>PikminTea</h1>
-        <p>Welcome to the official website of PikminTea.</p>
-    </header>
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>PikminTea</h1>
+                    <p>Building projects, and innovative ideas.</p>
+                    <a href="#projects" class="btn">View Projects</a>
+                    <a
+                        href="https://github.com/pikmintea"
+                        class="btn-outline"
+                        target="_blank"
+                        >GitHub</a
+                    >
+                </div>
+            </section>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+            <section id="about" class="about">
+                <div class="container">
+                    <h2>About Us</h2>
+                    <p>
+                        PikminTea is an organisation focused on building useful
+                        and in most case open-source projects for everyone.
+                    </p>
+                    <p>Part of the <strong>pikmintea</strong> ecosystem.</p>
+                </div>
+            </section>
 
-    <main>
+            <section id="projects" class="projects">
+                <div class="container">
+                    <h2>Projects</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="project-lang">
+                                Blazor / C# / HTML / CSS
+                            </div>
+                            <h3>
+                                <a href="https://github.com/pikmintea/QuickMath"
+                                    >QuickMath</a
+                                >
+                            </h3>
+                            <p>
+                                Online quick math tool — fast calculations in
+                                the browser. Built with Blazor WebAssembly. Work
+                                in progress. educational
+                            </p>
+                            <div class="project-links">
+                                <a href="https://pikmintea.github.io/QuickMath/"
+                                    >Live &rarr;</a
+                                >
+                                <a href="https://github.com/pikmintea/QuickMath"
+                                    >Source</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-lang">Markdown</div>
+                            <h3>
+                                <a href="https://github.com/pikmintea/RULES"
+                                    >RULES</a
+                                >
+                            </h3>
+                            <p>
+                                PikminTea organisation rules and licences. All
+                                projects must follow these guidelines.
+                            </p>
+                            <div class="project-links">
+                                <a href="rules.html">View &rarr;</a>
+                                <a href="https://github.com/pikmintea/RULES"
+                                    >Source</a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-lang">Java / Minecraft</div>
+                            <h3>
+                                <a href="https://github.com/pikmintea/Macrochip"
+                                    >Macrochip</a
+                                >
+                            </h3>
+                            <p>
+                                Minecraft mod — archived but preserved. Built
+                                with Fabric / Gradle. we have the idea but not
+                                the resources :/
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/pikmintea/Macrochip"
+                                    >Archived &rarr;</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section id="home">
-            <h2>Home</h2>
-            <p>Welcome to PikminTea. We create projects, communities, and innovative ideas.</p>
-        </section>
+            <section id="contact" class="contact">
+                <div class="container">
+                    <h2>Contact</h2>
+                    <p>Have a question or want to collaborate? Reach out.</p>
+                    <a href="mailto:pikmintea@proton.me" class="btn"
+                        >pikmintea@proton.me</a
+                    >
+                </div>
+            </section>
+        </main>
 
-        <section id="about">
-            <h2>About Us</h2>
-            <p>PikminTea is an organization focused on building creative and useful projects for everyone.</p>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li>Tea.run</li>
-                <li>Quickmath</li>
-                <li>Project Three</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: pikmintea@proton.me</p>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 PikminTea. All rights reserved.</p>
-    </footer>
-
-</body>
+        <footer>
+            <div class="container">
+                <p>
+                    &copy; 2026
+                    <a href="https://github.com/pikmintea">pikmintea</a>. All
+                    rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>

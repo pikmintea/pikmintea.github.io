@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules — PikminTea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">PikminTea</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="rules.html" class="active">Rules</a></li>
+                    <li><a href="https://github.com/pikmintea" target="_blank">GitHub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="rules-page">
+            <div class="container">
+                <h2>PikminTea Rules</h2>
+                <p class="rules-meta">Loading from GitHub…</p>
+                <div class="rules-section" id="rules-content">
+                    <p class="loading">Loading rules…</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <a href="https://github.com/opikmineta">opikmineta</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const RULES_URL = 'https://raw.githubusercontent.com/pikmintea/RULES/refs/heads/main/RULES.TXT';
+        const headerPattern = /^[A-Z][A-Z\s"\-()]+$/;
+
+        const rulesContent = document.getElementById('rules-content');
+        const rulesMeta = document.querySelector('.rules-meta');
+
+        fetch(RULES_URL)
+            .then(r => {
+                if (!r.ok) throw new Error('Failed to fetch rules');
+                return r.text();
+            })
+            .then(text => {
+                const lines = text.split('\n');
+                let html = '';
+                let firstLine = true;
+
+                for (const line of lines) {
+                    const trimmed = line.trimEnd();
+
+                    if (trimmed === '') {
+                        html += '\n\n';
+                        continue;
+                    }
+
+                    if (firstLine) {
+                        html += trimmed;
+                        firstLine = false;
+                        continue;
+                    }
+
+                    const isHeader = headerPattern.test(trimmed) && trimmed.length < 60;
+
+                    if (isHeader) {
+                        html += `\n<span class="rule-header">${escapeHtml(trimmed)}</span>\n`;
+                    } else {
+                        html += escapeHtml(trimmed) + '\n';
+                    }
+                }
+
+                rulesContent.innerHTML = html;
+                rulesMeta.innerHTML = `Loaded from <a href="${RULES_URL}" target="_blank">GitHub</a>`;
+            })
+            .catch(err => {
+                rulesContent.innerHTML = `<p class="error">Failed to load rules: ${err.message}</p>`;
+                rulesMeta.textContent = 'Could not load rules from GitHub';
+            });
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    </script>
+
+</body>
+</html>
